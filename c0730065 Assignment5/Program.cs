@@ -35,7 +35,7 @@ namespace Assignment_5
             string[] words = input.Split(' ');
             int wordarrayLength = words.Length;
             String longestword = words[0];
-            int[] wordsLength = new int[words.Length];
+            int[] wordsLength = new int[words.Length]; 
             for (int s = 0; s < words.Length; s++)
             {
                 wordsLength[s] = words[s].Length;
