@@ -21,121 +21,58 @@ namespace Assignment_5
     class Program
 
     {
-
-
-
-        string[] Letters = new string[26] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-
-
-
-
-
-
-
-        public static void Main()
-
-
-
+        static void Main(string[] args)
         {
-
-
-
-
-
-
-
-            Program orange = new Program();
-
-
-
-
-
-
-
-            Console.WriteLine(orange.Gematria("universe"));
-
-
-
-
-
-
-
-            Console.ReadLine();
-
-
-
+            Program a = new Program();
+            Console.WriteLine("the longest word is : ");
+            Console.WriteLine(a.MyFunctionA("Analaytical Lovelace wrote the first algorithm designed for processing by an Analytical Engine."));
         }
 
 
-
-
-
-
-
-        public int Gematria(string word)
-
-
-
+        public String MyFunctionA(string input)
         {
 
-            int GematriaValue = 0;
-
-            for (int i = 0; i < word.Length; i++)
-
+            string[] words = input.Split(' ');
+            int wordarrayLength = words.Length;
+            String longestword = words[0];
+            int[] wordsLength = new int[words.Length];
+            for (int s = 0; s < words.Length; s++)
             {
-
-
-                GematriaValue += LetterValue(word[i].ToString());
-
-
-
+                wordsLength[s] = words[s].Length;
             }
 
 
+            string currentWord = words[0];
+            string nextWord;
 
-
-
-
-
-            return GematriaValue;
-
-
-
-        }
-
-
-        public int LetterValue(string letter)
-
-
-
-        {
-
-
-            int x = 0;
-
-
-            while (Letters[x] != letter)
+            for (int y = 0; y < words.Length - 1; y++)
             {
+                currentWord = words[y];
 
-
-
-
-
-
-
-                if (Letters[x++] == letter)
-
-
-
-                    return -1;
-
+                nextWord = words[y + 1];
+                if (words[y + 1].Equals(words[y]))
+                {
+                    longestword = words[y + 1];
+                }
 
 
             }
+            return longestword;
 
-
-
-            return x + 1;
         }
+
+
     }
 }
+
+
+
+        
+
+
+
+
+
+
+
+           
